@@ -1,12 +1,90 @@
 <!DOCTYPE html>
-<html lang="PT-BR">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gerenciador de Tarefas Acadêmicas</title>
 </head>
 <body>
-    <h1>Meu nome é Matheus</h1>
-    <h3>Tenho 19 anos e nasci no Rio Grande do Sul</h3>
+    <header>
+        <h1>Gerenciador de Tarefas Acadêmicas</h1>
+    </header>
+
+    <main>
+        <section aria-labelledby="titulo-filtros">
+            <h2 id="titulo-filtros">Busca e filtros</h2>
+
+            <form>
+                <div>
+                    <label for="busca">Buscar tarefa por título:</label>
+                    <input type="text" id="busca" name="busca">
+                </div>
+
+                <fieldset>
+                    <legend>Filtrar por status</legend>
+                    <div>
+                        <input type="radio" id="status-fazer" name="status" value="fazer" checked>
+                        <label for="status-fazer">A fazer</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="status-andamento" name="status" value="andamento">
+                        <label for="status-andamento">Em andamento</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="status-revisao" name="status" value="revisao">
+                        <label for="status-revisao">Em revisão</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="status-concluida" name="status" value="concluida">
+                        <label for="status-concluida">Concluída</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Filtrar por prioridade:</legend>
+                    <div>
+                        <input type="radio" id="prio-baixa" name="prioridade" value="baixa" checked>
+                        <label for="prio-baixa">Baixa</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="prio-media" name="prioridade" value="media">
+                        <label for="prio-media">Média</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="prio-alta" name="prioridade" value="alta">
+                        <label for="prio-alta">Alta</label>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
+        <section aria-labelledby="titulo-quadro">
+            <h2 id="titulo-quadro">Quadro de tarefas</h2>
+
+            <section aria-labelledby="status-fazer-titulo">
+                <h3 id="status-fazer-titulo">A fazer</h3>
+
+            </section>
+
+            <section aria-labelledby="status-andamento-titulo">
+                <h3 id="status-andamento-titulo">Em andamento</h3>
+
+            </section>
+
+            <section aria-labelledby="status-revisao-titulo">
+                <h3 id="status-revisao-titulo">Em revisão</h3>
+
+            </section>
+
+            <section aria-labelledby="status-concluida-titulo">
+                <h3 id="status-concluida-titulo">Concluída</h3>
+
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>Matheus M. Pagel — Desenvolvimento Frontend — 2026/2</p>
+    </footer>
 </body>
 </html>
