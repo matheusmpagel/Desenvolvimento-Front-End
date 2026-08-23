@@ -1,0 +1,57 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0;}
+
+:root {
+    --cor-fundo: oklch(98% 0.005 250) ;
+    --cor-texto: oklch(25% 0.02 250);
+    --raio: 8px;
+    --espaco-1: 1.5rem;
+    --espaco-2: 1rem;
+    --espaco-3: 0.75rem;
+    --espaco-4: 0.5rem;
+    --borda: 1px solid;
+}
+
+h2 {
+    margin: var(--espaco-3);
+    color: rgb(182, 47, 255);
+}
+
+h3 {
+    margin: var(--espaco-3);
+    color: blue;
+}
+
+header {
+    background-color: rgb(107, 107, 255);
+    padding: var(--espaco-1);
+    color: white;
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}
+
+.filtros {
+    margin: var(--espaco-4);
+    width: 300px;
+    margin-left: var(--espaco-2);
+    border-radius: var(--raio);
+    padding-left: var(--espaco-4);
+}
+
+.cards {
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    border: var(--borda);
+    border-radius: var(--raio);
+    margin: var(--espaco-2);
+    width: 250px;
+    padding-left: var(--espaco-4);
+}
+
+footer {
+    background-color: blueviolet;
+    padding: var(--espaco-2);
+    color: white;
+}
