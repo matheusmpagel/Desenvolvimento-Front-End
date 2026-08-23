@@ -1,166 +1,170 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Tarefas Acadêmicas</title>
 </head>
 <body>
+    
     <header>
         <h1>Gerenciador de Tarefas Acadêmicas</h1>
     </header>
 
     <main>
-        <section aria-labelledby="titulo-filtros">
-            <h2 id="titulo-filtros">Busca e filtros</h2>
 
+        <section aria-labelledby="titulo-busca-filtros">
+        <h2 id="titulo-busca-filtros">Busca e Filtros</h2>
             <form>
                 <div>
-                    <label for="busca">Buscar tarefa por título:</label>
-                    <input type="text" id="busca" name="busca">
+                    <label for="busca-titulo">Buscar tarefa por título: </label>
+                    <input type="text" id="busca-titulo" name="busca-titulo">
                 </div>
 
                 <fieldset>
                     <legend>Filtrar por status</legend>
                     <div>
-                        <input type="radio" id="status-fazer" name="status" value="fazer" checked>
-                        <label for="status-fazer">A fazer</label>
+                        <input type="radio" name="status" id="status-a-fazer" value="a-fazer" checked>
+                        <label for="status-a-fazer">A fazer</label>
                     </div>
                     <div>
-                        <input type="radio" id="status-andamento" name="status" value="andamento">
+                        <input type="radio" name="status" id="status-andamento" value="andamento">
                         <label for="status-andamento">Em andamento</label>
                     </div>
                     <div>
-                        <input type="radio" id="status-revisao" name="status" value="revisao">
+                        <input type="radio" name="status" id="status-revisao" value="revisao">
                         <label for="status-revisao">Em revisão</label>
                     </div>
                     <div>
-                        <input type="radio" id="status-concluida" name="status" value="concluida">
+                        <input type="radio" name="status" id="status-concluida" value="concluida">
                         <label for="status-concluida">Concluída</label>
                     </div>
                 </fieldset>
+
                 <fieldset>
-                    <legend>Filtrar por prioridade:</legend>
+                    <legend>Filtrar por prioridade</legend>
                     <div>
-                        <input type="radio" id="prio-baixa" name="prioridade" value="baixa" checked>
-                        <label for="prio-baixa">Baixa</label>
+                        <input type="radio" name="prioridade" id="prioridade-alta" value="alta" checked>
+                        <label for="prioridade-alta">Alta</label>
                     </div>
                     <div>
-                        <input type="radio" id="prio-media" name="prioridade" value="media">
-                        <label for="prio-media">Média</label>
+                        <input type="radio" name="prioridade" id="prioridade-media" value="media">
+                        <label for="prioridade-media">Média</label>
                     </div>
                     <div>
-                        <input type="radio" id="prio-alta" name="prioridade" value="alta">
-                        <label for="prio-alta">Alta</label>
+                        <input type="radio" name="prioridade" id="prioridade-baixa" value="baixa">
+                        <label for="prioridade-baixa">Baixa</label>
                     </div>
                 </fieldset>
+
             </form>
         </section>
 
-        <section aria-labelledby="titulo-quadro">
-            <h2 id="titulo-quadro">Quadro de tarefas</h2>
+        <section aria-labelledby="titulo-quadro-tarefas">
+            <h2 id="titulo-quadro-tarefas">Quadro de Tarefas</h2>
 
-            <section aria-labelledby="status-fazer-titulo">
-                <h3 id="status-fazer-titulo">A fazer</h3>
-                <ul>
-                    <li>
-                        <article>
-                            <h4>CSS do projeto</h4>
-                            <p><strong>Projeto: </strong>Desenvolvimento Frontend</p>
-                            <p><strong>Responsável: </strong>Matheus</p>
-                            <p><strong>Prazo: </strong>18/08/2026</p>
-                            <p><strong>Prioridade: </strong>Média</p>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <h4>Questionários da E1</h4>
-                            <p><strong>Projeto: </strong>Desenvolvimento Frontend</p>
-                            <p><strong>Responsável: </strong>Marianne</p>
-                            <p><strong>Prazo: </strong>12/08/2026</p>
-                            <p><strong>Prioridade: </strong>Alta</p>
-                        </article>
-                    </li>
-                </ul>
+            <section aria-labelledby="status-titulo-fazer">
+                <h3 id="status-titulo-fazer">A fazer</h3>
+                    <ul>
+                        <li>
+                            <article>
+                                <h4>CSS do projeto</h4>
+                                <p><strong>Projeto: </strong>Desenvolvimento Frontend</p>
+                                <p><strong>Responsável: </strong>Matheus</p>
+                                <p><strong>Prazo: </strong>18/08/2026</p>
+                                <p><strong>Prioridade: </strong>Média</p>
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <h4>Questionários da E1</h4>
+                                <p><strong>Projeto: </strong>Desenvolvimento Frontend</p>
+                                <p><strong>Responsável: </strong>Marianne</p>
+                                <p><strong>Prazo: </strong>12/08/2026</p>
+                                <p><strong>Prioridade: </strong>Alta</p>
+                            </article>
+                        </li>
+                    </ul>
             </section>
 
-            <section aria-labelledby="status-andamento-titulo">
-                <h3 id="status-andamento-titulo">Em andamento</h3>
-                <ul>
-                    <li>
-                        <article>
-                            <h4>Sistema de combate por turnos</h4>
-                            <p><strong>Projeto: </strong>Game Dev</p>
-                            <p><strong>Responsável: </strong>Matheus</p>
-                            <p><strong>Prazo: </strong>20/08/2026</p>
-                            <p><strong>Prioridade: </strong>Baixa</p>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <h4>Pesquisa da LP escolhida</h4>
-                            <p><strong>Projeto: </strong>FlashClip</p>
-                            <p><strong>Responsável: </strong>Vitor</p>
-                            <p><strong>Prazo: </strong>18/08/2026</p>
-                            <p><strong>Prioridade: </strong>Média</p>
-                        </article>
-                    </li>
-                </ul>
+            <section aria-labelledby="status-titulo-andamento">
+                <h3 id="status-titulo-andamento">Em andamento</h3>
+                    <ul>
+                        <li>
+                            <article>
+                                <h4>Sistema de combate por turnos</h4>
+                                <p><strong>Projeto: </strong>Game Dev</p>
+                                <p><strong>Responsável: </strong>Matheus</p>
+                                <p><strong>Prazo: </strong>20/08/2026</p>
+                                <p><strong>Prioridade: </strong>Baixa</p>
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <h4>Pesquisa da LP escolhida</h4>
+                                <p><strong>Projeto: </strong>FlashClip</p>
+                                <p><strong>Responsável: </strong>Vitor</p>
+                                <p><strong>Prazo: </strong>18/08/2026</p>
+                                <p><strong>Prioridade: </strong>Média</p>
+                            </article>
+                        </li>
+                    </ul>
             </section>
 
-            <section aria-labelledby="status-revisao-titulo">
-                <h3 id="status-revisao-titulo">Em revisão</h3>
-                <ul>
-                    <li>
-                        <article>
-                            <h4>Slides de PI</h4>
-                            <p><strong>Projeto: </strong>Projeto Integrador</p>
-                            <p><strong>Responsável: </strong>Pedro</p>
-                            <p><strong>Prazo: </strong>14/08/2026</p>
-                            <p><strong>Prioridade: </strong>Média</p>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <h4>Atualização das planilhas</h4>
-                            <p><strong>Projeto: </strong>Automatização do trabalho</p>
-                            <p><strong>Responsável: </strong>Matheus</p>
-                            <p><strong>Prazo: </strong>Indefinido</p>
-                            <p><strong>Prioridade: </strong>Baixa</p>
-                        </article>
-                    </li>
-                </ul>
+            <section aria-labelledby="status-titulo-revisao">
+                <h3 id="status-titulo-revisao">Em revisão</h3>
+                    <ul>
+                        <li>
+                            <article>
+                                <h4>Slides de PI</h4>
+                                <p><strong>Projeto: </strong>Projeto Integrador</p>
+                                <p><strong>Responsável: </strong>Pedro</p>
+                                <p><strong>Prazo: </strong>14/08/2026</p>
+                                <p><strong>Prioridade: </strong>Média</p>
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <h4>Atualização das planilhas</h4>
+                                <p><strong>Projeto: </strong>Automatização do trabalho</p>
+                                <p><strong>Responsável: </strong>Matheus</p>
+                                <p><strong>Prazo: </strong>Indefinido</p>
+                                <p><strong>Prioridade: </strong>Baixa</p>
+                            </article>
+                        </li>
+                    </ul>
             </section>
 
-            <section aria-labelledby="status-concluida-titulo">
-                <h3 id="status-concluida-titulo">Concluída</h3>
-                <ul>
-                    <li>
-                        <article>
-                            <h4>HTML do projeto</h4>
-                            <p><strong>Projeto: </strong>Desenvolvimento Frontend</p>
-                            <p><strong>Responsável: </strong>Matheus</p>
-                            <p><strong>Prazo: </strong>11/08/2026</p>
-                            <p><strong>Prioridade: </strong>Alta</p>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <h4>Criação do banco em dupla</h4>
-                            <p><strong>Projeto: </strong>Banco de Dados</p>
-                            <p><strong>Responsável: </strong>Daniel</p>
-                            <p><strong>Prazo: </strong>17/08/2026</p>
-                            <p><strong>Prioridade: </strong>Alta    </p>
-                        </article>
-                    </li>
-                </ul>
+            <section aria-labelledby="status-titulo-concluida">
+                <h3 id="status-titulo-concluida">Concluída</h3>
+                    <ul>
+                        <li>
+                            <article>
+                                <h4>HTML do projeto</h4>
+                                <p><strong>Projeto: </strong>Desenvolvimento Frontend</p>
+                                <p><strong>Responsável: </strong>Matheus</p>
+                                <p><strong>Prazo: </strong>11/08/2026</p>
+                                <p><strong>Prioridade: </strong>Alta</p>
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <h4>Criação do banco em dupla</h4>
+                                <p><strong>Projeto: </strong>Banco de Dados</p>
+                                <p><strong>Responsável: </strong>Daniel</p>
+                                <p><strong>Prazo: </strong>17/08/2026</p>
+                                <p><strong>Prioridade: </strong>Alta    </p>
+                            </article>
+                        </li>
+                    </ul>
             </section>
+
         </section>
     </main>
 
     <footer>
         <p>Matheus M. Pagel — Desenvolvimento Frontend — 2026/2</p>
     </footer>
+
 </body>
 </html>
