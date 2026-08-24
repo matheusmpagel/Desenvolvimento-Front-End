@@ -2,14 +2,15 @@
 
 :root {
     --cor-fundo: oklch(98% 0.005 250) ;
+    --cor-fundo-2: oklch(85% 0.2 200);
     --cor-texto: oklch(25% 0.02 250);
-    --cor-superficie: white;
+    --cor-superficie: oklch(100% 0 0);
     --cor-borda: oklch(80% 0.02 250);
 
-    --cor-fazer: red;
-    --cor-andamento: orange;
-    --cor-revisao: yellow;
-    --cor-concluida: green;
+    --cor-fazer: oklch(65% 0.15 30);
+    --cor-andamento: oklch(65% 0.15 90);
+    --cor-revisao: oklch(65% 0.15 150);
+    --cor-concluida: oklch(65% 0.15 210);
 
     --raio: 8px;
     --espaco-1: 1.5rem;
@@ -19,20 +20,15 @@
     --borda: 1px solid var(--cor-borda);
 }
 
-h2 {
+h2, h3 {
     margin: var(--espaco-3);
-    color: rgb(182, 47, 255);
-}
+    color: var(--cor-texto);
+} 
 
-h3 {
-    margin: var(--espaco-3);
-    color: blue;
-}
-
-header {
-    background-color: rgb(107, 107, 255);
+header, footer {
+    background-color: var(--cor-fundo-2);
     padding: var(--espaco-1);
-    color: white;
+    color: var(--cor-texto);
     text-align: center;
 }
 
@@ -40,15 +36,9 @@ li {
     list-style: none;
 }
 
-footer {
-    background-color: blueviolet;
-    padding: var(--espaco-2);
-    color: white;
-}
-
 .filtros {
     margin: var(--espaco-4);
-    width: 300px;
+    width: 100%;
     margin-left: var(--espaco-2);
     border-radius: var(--raio);
     padding-left: var(--espaco-4);
@@ -60,7 +50,7 @@ footer {
     border: var(--borda);
     border-radius: var(--raio);
     margin: var(--espaco-2);
-    width: 250px;
+    width: 100%;
     padding-left: var(--espaco-4);
 }
 
@@ -68,13 +58,11 @@ footer {
 
     gap: var(--espaco-3);
     min-width: 0;
+    border: var(--borda);
     border-left: 4px solid var(--cor-status, var(--cor-borda));
-    border-right: var(--borda);
-    border-top: var(--borda);
-    border-bottom: var(--borda);
     border-radius: var(--raio);
     margin: var(--espaco-2);
-    width: 400px;
+    width: 100%;
 }
 
 .coluna[data-status="fazer"] {--cor-status: var(--cor-fazer); }
