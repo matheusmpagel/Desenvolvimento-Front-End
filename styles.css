@@ -16,6 +16,7 @@
     --espaco-2: 1rem;
     --espaco-3: 0.75rem;
     --espaco-4: 0.5rem;
+    --espaco-5: 0.25rem;
     --borda: 1px solid var(--cor-borda);
 }
 
@@ -44,29 +45,40 @@ li {
 }
 
 .filtros {
-    margin: var(--espaco-4);
-    max-width: 100%;
-    margin-left: var(--espaco-2);
-    border-radius: var(--raio);
-    padding-left: var(--espaco-4);
+    margin: var(--espaco-2);
 }
 
-input, fieldset {
+input {
     max-width: 100%;
+}
+
+fieldset {
+    padding: var(--espaco-2);
+    border-radius: var(--raio);
+}
+
+fieldset div {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-5);
+    min-height: 32px;
 }
 
 .card {
     display: flex;
     flex-direction: column;
+    gap: var(--espaco-4);
     background: var(--cor-fundo);
     color: var(--cor-texto);
     border: var(--borda);
     border-radius: var(--raio);
     width: 100%;
-    padding-left: var(--espaco-4);
+    min-width: 0;
+    padding: var(--espaco-4);
 }
 
 .card h4 {
+    flex: 1 1 auto;
     min-width: 0;
     white-space: nowrap;
     overflow: hidden;
@@ -75,34 +87,54 @@ input, fieldset {
 
 .card .prioridade {
     align-self: flex-start;
+    padding: var(--espaco-4);
+    border-radius: var(--raio);
+    background-color: var(--cor-status);
+    color: var(--cor-texto);
 }
 
 .card .prazo {
     margin-top: auto;
+    padding-top: var(--espaco-3);
+    border-top: var(--borda);
+    font-weight: bold;
 }
 
 .coluna {
     display: flex;
     flex-direction: column;
     gap: var(--espaco-3);
+    min-width: 0;
+    max-width: 100%;
     border: var(--borda);
     border-left: 4px solid var(--cor-status, var(--cor-borda));
     border-radius: var(--raio);
-    margin: var(--espaco-2);
-    width: 100%;
+    padding: var(--espaco-2);
 }
 
 .coluna ul {
     display: flex;
     flex-direction: column;
     gap: var(--espaco-2);
+    min-width: 0;
 }
 
 .quadro {
     display: grid;
     gap: var(--espaco-2);
+    min-width: 0;
+    max-width: 100%;
+    padding: var(--espaco-2);
 }
 
+.quadro h2 {
+    grid-column: 1 / -1;
+}
+
+/* 
+   A partir de 900px há espaço suficiente para exibir
+   as quatro colunas lado a lado sem comprometer a leitura.
+*/
 @media (min-width: 900px) {
     .quadro {
         grid-template-columns: repeat(4, minmax(0, 1fr));
