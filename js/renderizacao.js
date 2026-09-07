@@ -1,26 +1,24 @@
-import { tarefas } from "./dados.js";
-
 function criarCartao(tarefa) {
+    
     const cartao = document.createElement("article");
-
     cartao.className = "card";
-    cartao.dataset.tarefaId = tarefa.id;
 
     const titulo = document.createElement("h4");
     titulo.textContent = tarefa.titulo;
 
-    const botao = document.createElement("button");
-    botao.type = "button";
-    botao.dataset.acao = "ver-detalhes";
+    const prioridade = document.createElement("p");
+    prioridade.className = "prioridade";
+    prioridade.textContent = `Prioridade: ${tarefa.prioridade}`;
 
-    const span = document.createElement("span");
-    span.textContent = "Ver Detalhes";
+    const prazo = document.createElement("p");
+    prazo.className = "prazo";
+    prazo.textContent = `Prazo: ${tarefa.prazo}`;
 
-    botao.append(span);
-    cartao.append(titulo, botao);
+    cartao.append(titulo, prioridade, prazo);
 
     return cartao;
 }
+
 
 function renderizarTarefas(tarefas, quadro) {
 
@@ -42,30 +40,8 @@ function renderizarTarefas(tarefas, quadro) {
     });
 }
 
-function instalarEventosDoQuadro(quadro) {
-    quadro.addEventListener("click", (evento) => {
-        if (!(evento.target instanceof Element)) return;
-
-        const botao = evento.target.closest(
-            'button[data-acao="ver-detalhes"]'
-        );
-
-        if (!botao || !quadro.contains(botao)) return;
-
-        const cartao = botao.closest("[data-tarefa-id]");
-
-        const tarefa = tarefas.find(
-            (item) => item.id === cartao.dataset.tarefaId
-        );
-
-        if (!tarefa) return;
-
-        console.log("Detalhes da tarefa:", tarefa);
-    });
-}
 
 export {
     criarCartao,
-    renderizarTarefas,
-    instalarEventosDoQuadro
+    renderizarTarefas
 };
