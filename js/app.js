@@ -1,6 +1,16 @@
 import { carregarTarefas } from "./api.js";
 import { renderizarEstado } from "./estados.js";
 
+const estado = {
+tarefas: [],
+busca: "",
+status: "andamento",
+prioridade: "todas",
+ordenacao: "prazo-asc",
+carregamento: "carregando",
+erro: null,
+};
+
 async function iniciar() {
     const quadro = document.querySelector("[data-quadro]");
 
@@ -15,9 +25,9 @@ async function iniciar() {
     });
 
     try {
-        const tarefas = await carregarTarefas();
+        estado.tarefas = await carregarTarefas();
 
-        if (tarefas.length === 0) {
+        if (estado.tarefas.length === 0) {
             renderizarEstado("vazio", {
                 quadro
             });
@@ -26,7 +36,7 @@ async function iniciar() {
         }
 
         renderizarEstado("sucesso", {
-            tarefas,
+            tarefas: estado.tarefas,
             quadro
         });
 
@@ -55,5 +65,17 @@ async function iniciar() {
         console.error(erro);
     }
 }
+
+function selecionarTarefas(estado) {
+    const termo = estado.busca.trim().toLowerCase();
+    return estado.tarefas
+        .filter((t) => t.titulo.toLowerCase().includes(termo))
+        .filter((t) =>
+    estado.status === "todos" || t.status === estado.status
+    );
+}
+
+console.log(estado);
+console.log(selecionarTarefas(estado));
 
 iniciar();
