@@ -1,15 +1,21 @@
 import { carregarTarefas } from "./api.js";
 import { renderizarEstado } from "./estados.js";
+import { renderizarTarefas } from "./renderizacao.js";
 
 const estado = {
 tarefas: [],
 busca: "",
-status: "andamento",
+status: "todos",
 prioridade: "todas",
 ordenacao: "prazo-asc",
 carregamento: "carregando",
 erro: null,
 };
+
+const campoBusca = document.querySelector("#busca-titulo");
+const filtroStatus = document.querySelectorAll('input[name="status"]');
+const quadro = document.querySelector("[data-quadro]");
+const botaoLimpar = document.querySelector("#limpar-filtros");
 
 async function iniciar() {
     const quadro = document.querySelector("[data-quadro]");
@@ -35,10 +41,13 @@ async function iniciar() {
             return;
         }
 
-        renderizarEstado("sucesso", {
-            tarefas: estado.tarefas,
-            quadro
-        });
+        estado.carregamento = "sucesso";
+
+        renderizarAplicacao(estado, quadro);
+
+        const ordenadas = estado.tarefas.toSorted((a, b) =>
+            a.prazo.localeCompare(b.prazo)
+        );
 
     } catch (erro) {
         let mensagem;
@@ -75,7 +84,40 @@ function selecionarTarefas(estado) {
     );
 }
 
-console.log(estado);
-console.log(selecionarTarefas(estado));
+function renderizarAplicacao(estado, quadro) {
+    const visiveis = selecionarTarefas(estado);
+    const status = document.querySelector("[data-estado]");
+
+    renderizarTarefas(visiveis, quadro);
+
+    if (visiveis.length === 0) {
+        status.textContent = "Nenhuma tarefa encontrada.";
+    } else {
+        status.textContent = `${visiveis.length} de ${estado.tarefas.length} tarefas`;
+    }
+}
+
+campoBusca.addEventListener("input", (evento) => {
+    estado.busca = evento.currentTarget.value;
+    renderizarAplicacao(estado, quadro);
+});
+
+filtroStatus.forEach((filtro) => {
+    filtro.addEventListener("change", (evento) => {
+        estado.status = evento.currentTarget.value;
+        renderizarAplicacao(estado, quadro);
+    });
+});
+
+botaoLimpar.addEventListener("click", () => {
+    estado.busca = "";
+    estado.status = "todos";
+
+    campoBusca.value = "";
+
+    document.querySelector("#status-todos").checked = true;
+
+    renderizarAplicacao(estado, quadro);
+});
 
 iniciar();

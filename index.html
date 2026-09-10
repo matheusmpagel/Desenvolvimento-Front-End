@@ -25,8 +25,12 @@
                 <fieldset class="filtros">
                     <legend>Filtrar por status</legend>
                     <div>
-                        <input type="radio" name="status" id="status-a-fazer" value="a-fazer" checked>
-                        <label for="status-a-fazer">A fazer</label>
+                        <input type="radio" name="status" id="status-todos" value="todos" checked>
+                        <label for="status-todos">Todos</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="status" id="status-fazer" value="fazer">
+                        <label for="status-fazer">A fazer</label>
                     </div>
                     <div>
                         <input type="radio" name="status" id="status-andamento" value="andamento">
@@ -45,7 +49,11 @@
                 <fieldset class="filtros">
                     <legend>Filtrar por prioridade</legend>
                     <div>
-                        <input type="radio" name="prioridade" id="prioridade-alta" value="alta" checked>
+                        <input type="radio" name="prioridade" id="prioridade-todas" value="todas" checked>
+                        <label for="prioridade-todas">Todas</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="prioridade" id="prioridade-alta" value="alta">
                         <label for="prioridade-alta">Alta</label>
                     </div>
                     <div>
@@ -58,6 +66,8 @@
                     </div>
                 </fieldset>
 
+                <button type="button" id="limpar-filtros">Limpar filtros</button>
+                
             </form>
         </section>
 

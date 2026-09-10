@@ -19,42 +19,42 @@
             "titulo": "Sistema de combate por turnos",
             "status": "andamento",
             "prioridade": "baixa",
-            "prazo": "2026-09-02"
+            "prazo": "2026-09-10"
         },
         {
             "id": "t4",
             "titulo": "Pesquisa da LP escolhida",
             "status": "andamento",
             "prioridade": "media",
-            "prazo": "2026-09-03"
+            "prazo": "2026-06-03"
         },
         {
             "id": "t5",
             "titulo": "Slides de PI",
             "status": "revisao",
             "prioridade": "media",
-            "prazo": "2026-09-04"
+            "prazo": "2026-07-13"
         },
         {
             "id": "t6",
             "titulo": "Atualização das planilhas",
             "status": "revisao",
             "prioridade": "baixa",
-            "prazo": "2026-09-05"
+            "prazo": "2026-07-14"
         },
         {
             "id": "t7",
             "titulo": "HTML do projeto",
             "status": "concluida",
             "prioridade": "alta",
-            "prazo": "2026-09-06"
+            "prazo": "2026-10-21"
         },
         {
             "id": "t8",
             "titulo": "Criação do banco em dupla",
             "status": "concluida",
             "prioridade": "alta",
-            "prazo": "2026-09-07"
+            "prazo": "2026-10-09"
         }
     ]
 }
