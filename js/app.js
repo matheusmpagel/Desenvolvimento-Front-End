@@ -104,7 +104,7 @@ function renderizarAplicacao(estado, quadro) {
     renderizarTarefas(visiveis, quadro);
 
     if (visiveis.length === 0) {
-        status.textContent = "Nenhuma tarefa encontrada.";
+        status.textContent = "Nenhuma tarefa encontrada. Altere ou limpe os critérios de filtragem.";
     } else {
         status.textContent = `${visiveis.length} de ${estado.tarefas.length} tarefas`;
     }
