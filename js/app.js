@@ -14,11 +14,12 @@ erro: null,
 
 const campoBusca = document.querySelector("#busca-titulo");
 const filtroStatus = document.querySelectorAll('input[name="status"]');
+const filtroPrioridade = document.querySelectorAll('input[name="prioridade"]');
+const filtroOrdenacao = document.querySelectorAll('input[name="ordenacao"]');
 const quadro = document.querySelector("[data-quadro]");
 const botaoLimpar = document.querySelector("#limpar-filtros");
 
 async function iniciar() {
-    const quadro = document.querySelector("[data-quadro]");
 
     if (!quadro) {
         throw new Error(
@@ -34,6 +35,8 @@ async function iniciar() {
         estado.tarefas = await carregarTarefas();
 
         if (estado.tarefas.length === 0) {
+            estado.carregamento = "vazio";
+
             renderizarEstado("vazio", {
                 quadro
             });
@@ -45,11 +48,10 @@ async function iniciar() {
 
         renderizarAplicacao(estado, quadro);
 
-        const ordenadas = estado.tarefas.toSorted((a, b) =>
-            a.prazo.localeCompare(b.prazo)
-        );
-
     } catch (erro) {
+        estado.carregamento = "erro";
+        estado.erro = erro;
+
         let mensagem;
 
         if (erro.name === "TypeError") {
@@ -77,10 +79,21 @@ async function iniciar() {
 
 function selecionarTarefas(estado) {
     const termo = estado.busca.trim().toLowerCase();
-    return estado.tarefas
+    const filtradas = estado.tarefas
         .filter((t) => t.titulo.toLowerCase().includes(termo))
         .filter((t) =>
-    estado.status === "todos" || t.status === estado.status
+    estado.status === "todos" || t.status === estado.status)
+        .filter((t) =>
+    estado.prioridade === "todas" || t.prioridade === estado.prioridade);
+
+    if (estado.ordenacao === "prazo-desc") {
+        return filtradas.toSorted((a, b) =>
+            b.prazo.localeCompare(a.prazo)
+        );
+    }
+
+    return filtradas.toSorted((a, b) =>
+        a.prazo.localeCompare(b.prazo)
     );
 }
 
@@ -109,13 +122,31 @@ filtroStatus.forEach((filtro) => {
     });
 });
 
+filtroPrioridade.forEach((filtro) => {
+    filtro.addEventListener("change", (evento) => {
+        estado.prioridade = evento.currentTarget.value;
+        renderizarAplicacao(estado, quadro);
+    });
+});
+
+filtroOrdenacao.forEach((filtro) => {
+    filtro.addEventListener("change", (evento) => {
+        estado.ordenacao = evento.currentTarget.value;
+        renderizarAplicacao(estado, quadro);
+    });
+});
+
 botaoLimpar.addEventListener("click", () => {
     estado.busca = "";
     estado.status = "todos";
+    estado.prioridade = "todas";
+    estado.ordenacao = "prazo-asc";
 
     campoBusca.value = "";
 
     document.querySelector("#status-todos").checked = true;
+    document.querySelector("#prioridade-todas").checked = true;
+    document.querySelector("#ordenacao-crescente").checked = true;
 
     renderizarAplicacao(estado, quadro);
 });

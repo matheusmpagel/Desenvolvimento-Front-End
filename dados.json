@@ -3,7 +3,7 @@
         {
             "id": "t1",
             "titulo": "JS do projeto",
-            "status": "fazer",
+            "status": "andamento",
             "prioridade": "media",
             "prazo": "2026-08-18"
         },
@@ -17,14 +17,14 @@
         {
             "id": "t3",
             "titulo": "Sistema de combate por turnos",
-            "status": "andamento",
+            "status": "revisao",
             "prioridade": "baixa",
             "prazo": "2026-09-10"
         },
         {
             "id": "t4",
             "titulo": "Pesquisa da LP escolhida",
-            "status": "andamento",
+            "status": "concluida",
             "prioridade": "media",
             "prazo": "2026-06-03"
         },
@@ -38,7 +38,7 @@
         {
             "id": "t6",
             "titulo": "Atualização das planilhas",
-            "status": "revisao",
+            "status": "fazer",
             "prioridade": "baixa",
             "prazo": "2026-07-14"
         },
@@ -52,7 +52,7 @@
         {
             "id": "t8",
             "titulo": "Criação do banco em dupla",
-            "status": "concluida",
+            "status": "andamento",
             "prioridade": "alta",
             "prazo": "2026-10-09"
         }

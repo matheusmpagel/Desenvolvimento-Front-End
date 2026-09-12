@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Tarefas Acadêmicas</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="https://dinopixel.com/preload/0123/Master-Ball.png" type="image/x-icon">
+    <link rel="icon" href="https://dinopixel.com/preload/0123/Master-Ball.png" type="image/png">
 </head>
 <body>
     
@@ -64,6 +64,18 @@
                     <div>
                         <input type="radio" name="prioridade" id="prioridade-baixa" value="baixa">
                         <label for="prioridade-baixa">Baixa</label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="filtros">
+                    <legend>Ordenar por prazo</legend>
+                    <div>
+                        <input type="radio" name="ordenacao" id="ordenacao-crescente" value="prazo-asc" checked>
+                        <label for="ordenacao-crescente">Prazo mais próximo</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="ordenacao" id="ordenacao-decrescente" value="prazo-desc">
+                        <label for="ordenacao-decrescente">Prazo mais distante</label>
                     </div>
                 </fieldset>
 
